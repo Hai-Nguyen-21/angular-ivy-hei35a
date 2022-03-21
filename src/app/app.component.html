@@ -1,34 +1,35 @@
-<table>
-  <thead>
-    <tr>
-      <td>STT</td>
-      <td>Name</td>
-      <td>Username</td>
-      <td>Email</td>
-      <td>Address</td>
-      <td>Phone</td>
-      <td>Web</td>
-      <td>Company</td>
-    </tr>
-  </thead>
-  <tbody>
-    <ng-container *ngIf="authors.length > 0; else ngAuthor">
-      <tr
-        *ngFor="let author of authors; index as index; even as isEven"
-        [class.isEven]="isEven"
-      >
-        <td>{{ index + 1 }}</td>
-        <td>{{ author.name }}</td>
-        <td>{{ author.username }}</td>
-        <td>{{ author.email }}</td>
-        <td>{{ author.address.street }}</td>
-        <td>{{ author.phone }}</td>
-        <td>{{ author.website }}</td>
-        <td>{{ author.company.name }}</td>
-      </tr>
-    </ng-container>
-    <ng-template #ngAuthor>
-      <h2>Chưa có tác giả nào</h2>
-    </ng-template>
-  </tbody>
-</table>
+<h2>Hello {{ name }}</h2>
+
+<button (click)="isDanger = !isDanger">Danger</button>
+<button (click)="isWarning = !isWarning">Waring</button>
+
+<!-- 
+  [class.ten-class]
+  [class]="array"
+  [class]="object" object = {ten-class(string): boolean}
+  [class] = variable
+ -->
+<div class="box" [class.red-border]="isDanger" [class.yellow-bg]="isWarning">
+  Cách 1
+</div>
+<br />
+<div class="box" [class]="{ 'red-border': isDanger, 'yellow-bg': isWarning }">
+  Cách 3
+</div>
+<br />
+<div [class]="classes">Cách 4</div>
+<hr />
+<!-- 
+  [style.ten-style]
+  [style.tenClass] = có thể viết theo camelcase
+  [style] = "object"
+  [style.tenStyle.unit] = dành cho mấy style cần số má
+ -->
+<h2 [style.color]="'tomato'" [style.fontSize.px]="30">Hello {{ name }}</h2>
+<br />
+<div
+  class="box"
+  [style]="{color: 'red'; backgroundColor: yellow; fontSize: 2rem;}"
+>
+  kiểu object
+</div>
