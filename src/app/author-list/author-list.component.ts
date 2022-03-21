@@ -8,8 +8,7 @@ import { Author, authors } from '../authors.model';
     [author]="author"
     (deleteAuthor)="handleDelete($event)"
   >
-  </app-author-detail>`,
-  styles: [``],
+  </app-author-detail>`
 })
 export class AuthorListComponent implements OnInit {
   authors = authors;
