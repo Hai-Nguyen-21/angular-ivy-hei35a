@@ -1,8 +1,3 @@
 <h2>Hello {{ name }}</h2>
 
-<app-progress-bar></app-progress-bar>
-<br />
-<!-- currentProgress là biến được quản lý bên app component -->
-<app-progress-bar [progress]="currentProgress"></app-progress-bar>
-<button (click)="upToProgress()" [disabled]="isHide">Click me</button>
-<h3 *ngIf="isHide">Đã đầy thanh Progress, hãy dừng tay!</h3>
+<app-author-list></app-author-list>

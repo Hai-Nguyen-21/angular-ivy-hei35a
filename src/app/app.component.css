@@ -2,17 +2,3 @@ p {
   font-family: Lato;
 }
 
-.box {
-  width: 100px;
-  height: 100px;
-  padding: 20px 40px;
-  border: 10px solid black;
-}
-
-.red-border {
-  border: 10px solid tomato;
-}
-
-.yellow-bg {
-  background-color: yellow;
-}
