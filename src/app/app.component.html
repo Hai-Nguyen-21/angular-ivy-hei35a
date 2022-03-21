@@ -1,35 +1,8 @@
 <h2>Hello {{ name }}</h2>
 
-<button (click)="isDanger = !isDanger">Danger</button>
-<button (click)="isWarning = !isWarning">Waring</button>
-
-<!-- 
-  [class.ten-class]
-  [class]="array"
-  [class]="object" object = {ten-class(string): boolean}
-  [class] = variable
- -->
-<div class="box" [class.red-border]="isDanger" [class.yellow-bg]="isWarning">
-  Cách 1
-</div>
+<app-progress-bar></app-progress-bar>
 <br />
-<div class="box" [class]="{ 'red-border': isDanger, 'yellow-bg': isWarning }">
-  Cách 3
-</div>
-<br />
-<div [class]="classes">Cách 4</div>
-<hr />
-<!-- 
-  [style.ten-style]
-  [style.tenClass] = có thể viết theo camelcase
-  [style] = "object"
-  [style.tenStyle.unit] = dành cho mấy style cần số má
- -->
-<h2 [style.color]="'tomato'" [style.fontSize.px]="30">Hello {{ name }}</h2>
-<br />
-<div
-  class="box"
-  [style]="{color: 'red'; backgroundColor: yellow; fontSize: 2rem;}"
->
-  kiểu object
-</div>
+<!-- currentProgress là biến được quản lý bên app component -->
+<app-progress-bar [progress]="currentProgress"></app-progress-bar>
+<button (click)="upToProgress()" [disabled]="isHide">Click me</button>
+<h3 *ngIf="isHide">Đã đầy thanh Progress, hãy dừng tay!</h3>
