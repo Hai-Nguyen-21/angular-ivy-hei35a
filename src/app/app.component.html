@@ -12,18 +12,23 @@
     </tr>
   </thead>
   <tbody>
-    <tr
-      *ngFor="let author of authors; index as index; even as isEven"
-      [class.isEven]="isEven"
-    >
-      <td>{{ index + 1 }}</td>
-      <td>{{ author.name }}</td>
-      <td>{{ author.username }}</td>
-      <td>{{ author.email }}</td>
-      <td>{{ author.address.street }}</td>
-      <td>{{ author.phone }}</td>
-      <td>{{ author.website }}</td>
-      <td>{{ author.company.name }}</td>
-    </tr>
+    <ng-container *ngIf="authors.length > 0; else ngAuthor">
+      <tr
+        *ngFor="let author of authors; index as index; even as isEven"
+        [class.isEven]="isEven"
+      >
+        <td>{{ index + 1 }}</td>
+        <td>{{ author.name }}</td>
+        <td>{{ author.username }}</td>
+        <td>{{ author.email }}</td>
+        <td>{{ author.address.street }}</td>
+        <td>{{ author.phone }}</td>
+        <td>{{ author.website }}</td>
+        <td>{{ author.company.name }}</td>
+      </tr>
+    </ng-container>
+    <ng-template #ngAuthor>
+      <h2>Chưa có tác giả nào</h2>
+    </ng-template>
   </tbody>
 </table>
